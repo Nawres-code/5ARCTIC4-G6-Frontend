@@ -1,0 +1,57 @@
+<form class="mx-1 mx-md-4" [formGroup]="resetPasswordForm" (ngSubmit)="onSubmitResetPassword()">
+    <!-- Email -->
+    <div class="mb-4">
+      <label for="email" class="form-label">Email *</label>
+      <div class="input-group">
+        <span class="input-group-text"><i class="fas fa-envelope fa-lg me-3 fa-fw"></i></span>
+        <input type="email" id="email" formControlName="email" class="form-control" />
+      </div>
+      <div class="text-danger" *ngIf="submitted && resetPasswordForm.get('email')?.hasError('required')">
+        <small>Email is required.</small>
+      </div>
+      <div class="text-danger" *ngIf="submitted && resetPasswordForm.get('email')?.hasError('email')">
+        <small>Please enter a valid email address.</small>
+      </div>
+    </div>
+  
+    <!-- New Password -->
+    <div class="mb-4">
+      <label for="newPassword" class="form-label">New Password *</label>
+      <div class="input-group">
+        <span class="input-group-text"><i class="fas fa-lock fa-lg me-3 fa-fw"></i></span>
+        <input type="password" id="newPassword" formControlName="newPassword" class="form-control" />
+      </div>
+      <div class="text-danger" *ngIf="submitted && resetPasswordForm.get('newPassword')?.hasError('required')">
+        <small>{{ validationMessages.newPassword.required }}</small>
+      </div>
+      <div class="text-danger" *ngIf="submitted && resetPasswordForm.get('newPassword')?.hasError('pattern')">
+        <small>{{ validationMessages.newPassword.pattern }}</small>
+      </div>
+      <div class="text-danger" *ngIf="submitted && resetPasswordForm.get('newPassword')?.hasError('minlength')">
+        <small>{{ validationMessages.newPassword.minlength }}</small>
+      </div>
+    </div>
+  
+    <!-- Confirm Password -->
+    <div class="mb-4">
+      <label for="confirmPassword" class="form-label">Confirm Password *</label>
+      <div class="input-group">
+        <span class="input-group-text"><i class="fas fa-lock fa-lg me-3 fa-fw"></i></span>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control" />
+      </div>
+      <div class="text-danger" *ngIf="submitted && resetPasswordForm.get('confirmPassword')?.hasError('required')">
+        <small>{{ validationMessages.confirmPassword.required }}</small>
+      </div>
+      <div class="text-danger" *ngIf="submitted && resetPasswordForm.get('confirmPassword')?.hasError('minlength')">
+        <small>{{ validationMessages.confirmPassword.minlength }}</small>
+      </div>
+      <div class="text-danger" *ngIf="submitted && resetPasswordForm.get('confirmPassword')?.hasError('passwordMismatch')">
+        <small>{{ validationMessages.confirmPassword.passwordMismatch }}</small>
+      </div>
+    </div>
+  
+    <!-- Submit Button -->
+    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+      <button type="submit" class="btn btn-primary btn-lg addBtn">Change Password</button>
+    </div>
+  </form>

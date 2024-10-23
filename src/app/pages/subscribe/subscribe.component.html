@@ -1,0 +1,33 @@
+<div style="margin-top: 80px;">
+  <div style="margin-top: 50px;"> <!-- Additional margin for spacing -->
+    <h2>Add New Subscription</h2>
+    <form (ngSubmit)="onSubmit()" #subscriptionForm="ngForm">
+      <div class="form-group">
+        <label for="subType">Subscription Type:</label>
+        <select class="form-control" id="subType" name="subType" [(ngModel)]="subscription.subType" required>
+          <option [ngValue]="'ANNUEL'">Annual</option>
+          <option [ngValue]="'MENSUEL'">Monthly</option>
+          <option [ngValue]="'SEMESTRIEL'">Semi-Annual</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dateDebut">Start Date:</label>
+        <input type="date" class="form-control" id="dateDebut" name="dateDebut" [(ngModel)]="subscription.dateDebut" (change)="calculateExpirationDate()" required>
+      </div>
+      <div class="form-group">
+  <label for="dateExpiration">Expiration Date:</label>
+  <input type="date" class="form-control" id="dateExpiration" name="dateExpiration" [(ngModel)]="subscription.dateExpiration" required>
+      </div>
+  <div class="form-group">
+        <label for="price">Price:</label>
+        <select class="form-control" id="price" name="price" [(ngModel)]="subscription.price" required >
+          <option [ngValue]="400" *ngIf="subscription.subType === 'ANNUEL'">400</option>
+          <option [ngValue]="80" *ngIf="subscription.subType === 'MENSUEL'">80</option>
+          <option [ngValue]="250" *ngIf="subscription.subType === 'SEMESTRIEL'">250</option>
+        </select>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

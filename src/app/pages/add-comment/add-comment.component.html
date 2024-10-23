@@ -1,0 +1,76 @@
+<div
+  class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+  style="
+    min-height: 10px;
+    background-image: url(assets/img/commentaires.jpg);
+    background-size: cover;
+    background-position: center top;
+  "
+>
+  <!-- Mask -->
+  <span class="mask bg-gradient-danger opacity-4"></span>
+  <div class="container-fluid d-flex align-items-center">
+    <div class="row">
+      <div class="col-lg-7 col-md-10">
+        <h1 class="display-2 text-white">Hello</h1>
+        <p class="text-white mt-0 mb-5">
+          Join the conversation and lend a helping hand to those seeking
+          guidance
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+      <!-- Votre carte de profil va ici -->
+    </div>
+    <div class="col-xl-9 order-xl-1 mx-auto" style="max-width: 800px">
+        <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Add a comment</h3>
+            </div>
+            <div class="col-4 text-right">
+              <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="form-wrapper">
+            <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+                <h6 class="heading-small text-muted mb-4">Comment information</h6>
+                <div class="form-group">
+                  <label for="content">Content:</label>
+                  <input type="text" class="form-control" id="content" formControlName="content" required />
+                  <div *ngIf="commentForm.get('content').invalid && commentForm.get('content').touched" class="text-danger" style="margin-top: 5px">
+                    <span *ngIf="commentForm.get('content').hasError('required')">Content is required</span>
+                    <span *ngIf="commentForm.get('content').hasError('forbiddenWords')">Content contains forbidden words</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="description">Description:</label>
+                  <textarea class="form-control" id="description" formControlName="description" required></textarea>
+                  <div *ngIf="commentForm.get('description').invalid && commentForm.get('description').touched" class="text-danger" style="margin-top: 5px">
+                    <span *ngIf="commentForm.get('description').hasError('required')">Description is required</span>
+                    <span *ngIf="commentForm.get('description').hasError('forbiddenWords')">Description contains forbidden words</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="datePub">Date:</label>
+                  <input type="date" class="form-control" id="datePub" formControlName="datePub" required />
+                  <div *ngIf="commentForm.get('datePub').invalid && commentForm.get('datePub').touched" class="text-danger" style="margin-top: 5px">
+                    <span *ngIf="commentForm.get('datePub').hasError('required')">Date is required</span>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="commentForm.invalid">Submit</button>
+              </form>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

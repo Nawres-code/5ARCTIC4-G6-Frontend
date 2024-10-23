@@ -1,0 +1,89 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 10px; background-image: url(assets/img/commentaire.jpg); background-size: cover; background-position: center top;">
+  <!-- Mask -->
+  <span class="mask bg-gradient-danger opacity-4"></span>
+  <div class="container-fluid d-flex align-items-center">
+    <div class="row">
+      <div class="col-lg-7 col-md-10">
+        <h1 class="display-2 text-white">Hello</h1>
+        <p class="text-white mt-0 mb-5">
+          "Be part of our community effort to support each other. Leave a comment to offer help or share valuable insights."
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+      <!-- Votre carte de profil va ici -->
+    </div>
+    <div class="col-xl-9 order-xl-1 mx-auto" style="max-width: 1000px">
+      <div class="card bg-secondary shadow w-100">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Comments</h3>
+            </div>
+            <div class="col-4 text-right">
+              <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Content</th>
+                <th scope="col">Description</th>
+                <th scope="col">Date</th>
+                <th scope="col">Poste</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let comment of comments">
+                <td scope="row">{{ comment.idComm }}</td>
+                <td>{{ comment.content }}</td>
+                <td>{{ comment.description }}</td>
+                <td>{{ comment.datePub }}</td>
+                <td>
+                  <p>
+                    <a class="link-opacity-100-hover" href="javascript:void(0)" (click)="openPostDetailsModal(comment.poste?.idPoste)">
+                      {{ comment.poste ? comment.poste.title : "-" }}
+                    </a>
+                  </p>
+                </td>                
+                <td>
+                  <div style="display: flex; align-items: center">
+                    <span placement="top-center" style="cursor: pointer; margin-right: 10px" ngbTooltip="Supprimer" (click)="deleteComment(comment.idComm)">
+                      <i class="ni ni-fat-remove text-danger"></i>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="postDetailsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="postDetailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title fs-5" id="postDetailsModalLabel">Post Details</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closePostDetailsModal()"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Title:</strong> {{ selectedPost?.title }}</p>
+        <p><strong>Description:</strong> {{ selectedPost?.description }}</p>
+        <p><strong>Date:</strong> {{ selectedPost?.date }}</p>
+      </div>
+    </div>
+  </div>
+</div>

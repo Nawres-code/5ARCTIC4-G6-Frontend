@@ -1,0 +1,24 @@
+.star-rating {
+    font-size: 3em;
+    color: #ccc; /* Default star color */
+    display: inline-block;
+}
+.star {
+    cursor: pointer;
+}
+
+
+.star-rating span {
+    cursor: pointer;
+    transition: color 0.3s ease-in-out; /* Smooth transition */
+}
+
+.star-rating span:hover,
+.star-rating span.full {
+    color: gold; /* Hovered or selected star color */
+}
+
+.description {
+    width: 50%; /* Adjust the width of the description textarea */
+    margin: auto; /* Center the textarea horizontally */
+}
