@@ -223,7 +223,6 @@ this.dashboardService.getUserCountSinceLastMonth().subscribe(count => {
   
   }
   checkReservationCount() {
-    let smsSent = false; // Flag to track if SMS has been sent
     let notificationShown = false; // Flag to track if the notification has been shown
     let subscription; // Variable to store the subscription
   
@@ -232,27 +231,17 @@ this.dashboardService.getUserCountSinceLastMonth().subscribe(count => {
       if (count === 5 && !notificationShown) { // Show the error notification only once
         this.toastr.error('Reservation count since last week is 5!', 'Alert', { timeOut: 5000 }); // Notification disappears after 5 seconds
         notificationShown = true; // Set notification flag to true
-      } else if (count < 5 && !smsSent && !notificationShown) {
+      } else if (count < 5 && !notificationShown) {
         this.toastr.warning('Reservation count since last week is less than 5!', 'Warning', { timeOut: 5000 }); // Notification disappears after 5 seconds
         notificationShown = true; // Set notification flag to true
-        
-        // Send SMS using Twilio service
-        this.twilioService.sendSMS('+21629117005', 'Reservation count since last week is less than 5!').subscribe(
-          () => {
-            console.log('SMS sent successfully');
-            smsSent = true; // Set SMS sent flag to true
-            // Unsubscribe from the observable to prevent further emissions
-            if (subscription) {
-              subscription.unsubscribe();
-            }
-          },
-          error => {
-            console.error('Failed to send SMS:', error);
-          }
-        );
+        // Unsubscribe from the observable to prevent further emissions
+        if (subscription) {
+          subscription.unsubscribe();
+        }
       }
     });
   }
+  
   
   fetchMostActiveUser(): void {
     this.dashboardService.getmostActiveUser().subscribe(
