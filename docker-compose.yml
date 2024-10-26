@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: nawreslakhal/devops:mysql
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: testParking1
+    ports:
+      - "3306:3306"
+    networks:
+      - my-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    image: nawreslakhal/devops:backend
+    container_name: backend-container
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/testParking1?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SERVER_PORT: 9200
+    ports:
+      - "9200:9200"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - my-network
+
+  frontend:
+    image: nawreslakhal/devops:frontend
+    container_name: frontend-container
+    ports:
+      - "4200:80"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
