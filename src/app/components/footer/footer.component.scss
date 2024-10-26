@@ -1,0 +1,31 @@
+.custom-footer {
+    background-color: #2d3c5d;
+    color:aliceblue; /* Set background color for the footer */
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Adjust the space between icons */
+  }
+
+  .social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%; /* Create a circular border */
+    background-color: #ffffff; /* Background color for icons */
+    color: #0F1035; /* Icon color */
+    transition: background-color 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    background-color: #0F1035; /* Change background color on hover */
+    color: #ffffff; /* Change icon color on hover */
+  }
+
+  .social-icons a i {
+    font-size: 17px;
+  }

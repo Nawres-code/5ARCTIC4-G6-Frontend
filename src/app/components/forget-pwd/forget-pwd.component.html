@@ -1,0 +1,39 @@
+<div class="container-fluid w-100 h-100" style="overflow-x: hidden;overflow-y: hidden;">
+    <div class="row">
+      <div class="col-lg-12 col-xl-11 w-100">
+        <div class="">
+          <div class="card-body login-container">
+            <div class="row justify-content-center">
+              <div class="col-md-8 col-lg-8 col-xl-7 d-flex" style="height:100%;background-color: #f0f3fd; ">
+                <img src="https://modernize-angular-main.netlify.app/assets/images/backgrounds/login-bg.svg"
+                  class="img-fluid" alt="Sample image" style="height:100vh;width:100vw">
+              </div>
+              <div class="col-md-4 col-lg-4 col-xl-5 align-items-center order-1 order-lg-2" style="margin-top:7%;">
+                <p class="text-center h1 mb-5 fw-bold mx-1 mx-md-4 mt-4">Forgot Password</p>
+                <form class="mx-1 mx-md-4" [formGroup]="forgotPasswordForm" (ngSubmit)="onSubmitForgotPassword()">
+                  <!-- Email -->
+                  <div class="mb-4">
+                    <label for="email" class="form-label">Email *</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="fas fa-envelope fa-lg me-3 fa-fw"></i></span>
+                      <input type="email" id="email" formControlName="email" class="form-control" />
+                    </div>
+                    <div class="text-danger" *ngIf="submitted && forgotPasswordForm.get('email')?.hasError('required')">
+                      <small>{{ validationMessages.email.required }}</small>
+                    </div>
+                    <div class="text-danger" *ngIf="submitted && forgotPasswordForm.get('email')?.hasError('email')">
+                      <small>{{ validationMessages.email.email }}</small>
+                    </div>
+                  </div>
+                  <!-- Submit Button -->
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" class="btn btn-primary btn-lg addBtn">Reset Password</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
