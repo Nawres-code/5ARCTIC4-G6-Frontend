@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 
 export class AuthService {
 
-  private endpointURL="http://localhost:9200/api/v1/auth/"
+  private endpointURL="http://192.168.163.145:9200/api/v1/auth/"
   public  JWT_TOKEN_KEY= 'jwt_token';
   public connected_User :any;
  
@@ -36,7 +36,7 @@ export class AuthService {
     );
   }
 
-   endpointpwd="http://localhost:9200/api/v1/"
+   endpointpwd="http://192.168.163.145:9200/api/v1/"
    forgotPassword(email: string): Observable<any> {
     const forgotPasswordUrl =  `${this.endpointpwd}forgot-password`;
 
@@ -124,7 +124,7 @@ export class AuthService {
 
 
   deleteUserById(userId: number): Observable<any> {
-    const deleteUserUrl = `http://localhost:9200/api/v1/user/deleteId/${userId}`;
+    const deleteUserUrl = `http://192.168.163.145:9200/api/v1/user/deleteId/${userId}`;
     return this.http.delete(deleteUserUrl).pipe(
       tap(() => {
         // Optionally perform any actions after successful deletion
