@@ -44,36 +44,36 @@ export class DashboardService {
   private recPercentagesProcessingUrl: string
 
   constructor(private http: HttpClient, private toastr: ToastrService) { 
-    this.userCountUrl = 'http://192.168.163.145:9200/api/v1/userdashboard/user-count';
-    this.userCountSinceLastMonthUrl = 'http://192.168.163.145:9200/api/v1/userdashboard/user-count-since-last-month'
-    this.parkingLotsCountUrl = 'http://192.168.163.145:9200/parking/reservationdashboard/lots-count';
-    this.reservationCountUrl = 'http://192.168.163.145:9200/api/v1/reservationdashboard/reservations-count';
-    this.reservationCountSinceLastWeekUrl = 'http://192.168.163.145:9200/api/v1/userdashboard/reservation-count-since-last-week'
-    this.posteCountUrl = 'http://192.168.163.145:9200/api/v1/postdashboard/post-count';
-    this.lotsCountUrl = 'http://192.168.163.145:9200/api/v1/reservationdashboard/lots-count';
-    this.spotsCountUrl = 'http://192.168.163.145:9200/api/v1/reservationdashboard/spots-count'
-    this.spotTypeUrl = 'http://192.168.163.145:9200/api/v1/reservationdashboard/most-visited-spot';
-    this.carCountUrl = 'http://192.168.163.145:9200/api/v1/spotDashboard/car';
-    this.bicycleCountUrl = 'http://192.168.163.145:9200/api/v1/spotDashboard/bicycle';
-    this.scooterCountUrl = 'http://192.168.163.145:9200/api/v1/spotDashboard/scooter';
-    this.handicapCountUrl = 'http://192.168.163.145:9200/api/v1/spotDashboard/handicapped';
-    this.motorCountUrl = 'http://192.168.163.145:9200/api/v1/spotDashboard/motorcycles';
-    this.simpleUserUrl ='http://192.168.163.145:9200/api/v1/userdashboard/simple-user-count';
-    this.subscribedUserUrl = 'http://192.168.163.145:9200/api/v1/userdashboard/subscribed-user-count';
-    this.annuelUrl = 'http://192.168.163.145:9200/api/v1/subscriptiondashboard/annuel-subscriptions-count';
-    this.mensuelUrl = 'http://192.168.163.145:9200/api/v1/subscriptiondashboard/mensuel-subscriptions-count';
-    this.semestrielUrl = 'http://192.168.163.145:9200/api/v1/subscriptiondashboard/semestriel-subscriptions-count';
-    this.pendingUrl = 'http://192.168.163.145:9200/api/v1/reclamationdashboard/pending-reclamations-count';
-    this.acceptedUrl = 'http://192.168.163.145:9200/api/v1/reclamationdashboard/accepted-reclamations-count';
-    this.processingUrl = 'http://192.168.163.145:9200/api/v1/reclamationdashboard/processing-reclamations-count';
-    this.reclamationCountUrl = 'http://192.168.163.145:9200/api/v1/reclamationdashboard/reclamation-count';
-    this.subPercentagesSemestrielUrl = 'http://192.168.163.145:9200/api/v1/subscriptiondashboard/subscription-percentage-semestriel';
-    this.subPercentagesAnnuelUrl = 'http://192.168.163.145:9200/api/v1/subscriptiondashboard/subscription-percentage-annuel';
-    this.subPercentagesMensuelUrl = 'http://192.168.163.145:9200/api/v1/subscriptiondashboard/subscription-percentage-mensuel';
-    this.mostActiveUserUrl = 'http://192.168.163.145:9200/api/v1/userdashboard/most-active-user';
-    this.recPercentagesAcceptedUrl = 'http://192.168.163.145:9200/api/v1/reclamationdashboard/reclamation-percentage-accepted';
-    this.recPercentagesPendingUrl = 'http://192.168.163.145:9200/api/v1/reclamationdashboard/reclamation-percentage-pending';
-    this.recPercentagesProcessingUrl = 'http://192.168.163.145:9200/api/v1/reclamationdashboard/reclamation-percentage-processing';
+    this.userCountUrl = 'http://localhost:9200/api/v1/userdashboard/user-count';
+    this.userCountSinceLastMonthUrl = 'http://localhost:9200/api/v1/userdashboard/user-count-since-last-month'
+    this.parkingLotsCountUrl = 'http://localhost:9200/parking/reservationdashboard/lots-count';
+    this.reservationCountUrl = 'http://localhost:9200/api/v1/reservationdashboard/reservations-count';
+    this.reservationCountSinceLastWeekUrl = 'http://localhost:9200/api/v1/userdashboard/reservation-count-since-last-week'
+    this.posteCountUrl = 'http://localhost:9200/api/v1/postdashboard/post-count';
+    this.lotsCountUrl = 'http://localhost:9200/api/v1/reservationdashboard/lots-count';
+    this.spotsCountUrl = 'http://localhost:9200/api/v1/reservationdashboard/spots-count'
+    this.spotTypeUrl = 'http://localhost:9200/api/v1/reservationdashboard/most-visited-spot';
+    this.carCountUrl = 'http://localhost:9200/api/v1/spotDashboard/car';
+    this.bicycleCountUrl = 'http://localhost:9200/api/v1/spotDashboard/bicycle';
+    this.scooterCountUrl = 'http://localhost:9200/api/v1/spotDashboard/scooter';
+    this.handicapCountUrl = 'http://localhost:9200/api/v1/spotDashboard/handicapped';
+    this.motorCountUrl = 'http://localhost:9200/api/v1/spotDashboard/motorcycles';
+    this.simpleUserUrl ='http://localhost:9200/api/v1/userdashboard/simple-user-count';
+    this.subscribedUserUrl = 'http://localhost:9200/api/v1/userdashboard/subscribed-user-count';
+    this.annuelUrl = 'http://localhost:9200/api/v1/subscriptiondashboard/annuel-subscriptions-count';
+    this.mensuelUrl = 'http://localhost:9200/api/v1/subscriptiondashboard/mensuel-subscriptions-count';
+    this.semestrielUrl = 'http://localhost:9200/api/v1/subscriptiondashboard/semestriel-subscriptions-count';
+    this.pendingUrl = 'http://localhost:9200/api/v1/reclamationdashboard/pending-reclamations-count';
+    this.acceptedUrl = 'http://localhost:9200/api/v1/reclamationdashboard/accepted-reclamations-count';
+    this.processingUrl = 'http://localhost:9200/api/v1/reclamationdashboard/processing-reclamations-count';
+    this.reclamationCountUrl = 'http://localhost:9200/api/v1/reclamationdashboard/reclamation-count';
+    this.subPercentagesSemestrielUrl = 'http://localhost:9200/api/v1/subscriptiondashboard/subscription-percentage-semestriel';
+    this.subPercentagesAnnuelUrl = 'http://localhost:9200/api/v1/subscriptiondashboard/subscription-percentage-annuel';
+    this.subPercentagesMensuelUrl = 'http://localhost:9200/api/v1/subscriptiondashboard/subscription-percentage-mensuel';
+    this.mostActiveUserUrl = 'http://localhost:9200/api/v1/userdashboard/most-active-user';
+    this.recPercentagesAcceptedUrl = 'http://localhost:9200/api/v1/reclamationdashboard/reclamation-percentage-accepted';
+    this.recPercentagesPendingUrl = 'http://localhost:9200/api/v1/reclamationdashboard/reclamation-percentage-pending';
+    this.recPercentagesProcessingUrl = 'http://localhost:9200/api/v1/reclamationdashboard/reclamation-percentage-processing';
 
 
   }
