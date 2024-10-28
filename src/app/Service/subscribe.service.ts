@@ -12,8 +12,8 @@ export class UserSubscriptionService {
 
   constructor(private http: HttpClient) {
     // Update the URL to match your backend URL
-   // this.userUrl = 'http://localhost:9000/parking/userdashboard/user-count';
-    this.subscribtionUrl = 'http://localhost:9200/api/v1/subscription'; 
+   // this.userUrl = 'http://192.168.163.145:9200/parking/userdashboard/user-count';
+    this.subscribtionUrl = 'http://192.168.163.145:9200/api/v1/subscription'; 
   }
 
   public findAll(): Observable<Subscription[]> {
