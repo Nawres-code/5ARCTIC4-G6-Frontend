@@ -13,7 +13,7 @@ export class CommentsService {
   public selectedComment$: Observable<Comments | null> = this.selectedCommentSubject.asObservable();
 
   constructor(private http: HttpClient, private toastr: ToastrService) { 
-    this.commentUrl = 'http://localhost:9200/api/v1/comments';
+    this.commentUrl = 'http://192.168.40.149:9200/api/v1/comments';
   }
 
   public findAll(): Observable<Comments[]> {

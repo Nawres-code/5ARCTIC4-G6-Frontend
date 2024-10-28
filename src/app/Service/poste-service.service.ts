@@ -13,7 +13,7 @@ export class PosteServiceService {
 
   constructor(private http: HttpClient) {
     // Update the URL to match your backend URL
-    this.posteUrl = 'http://localhost:9200/api/v1/poste';
+    this.posteUrl = 'http://192.168.40.149:9200/api/v1/poste';
   }
 
   public findAll(): Observable<Poste[]> {

@@ -13,7 +13,7 @@ export class ReclamationUserAdmin {
 
   constructor(private http: HttpClient) {
     // Update the URL to match your backend URL
-    this.reclamationUrl = 'http://localhost:9200/api/v1/reclamation';
+    this.reclamationUrl = 'http://192.168.40.149:9200/api/v1/reclamation';
   }
 
 

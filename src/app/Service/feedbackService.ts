@@ -11,7 +11,7 @@ export class feedbackService {
 
     private feedbackUrl: string;
     constructor(private http: HttpClient) {
-    this.feedbackUrl = 'http://localhost:9200/api/v1/feedback'; 
+    this.feedbackUrl = 'http://192.168.40.149:9200/api/v1/feedback'; 
   }
 
   public findAll(): Observable<Feedback[]> {

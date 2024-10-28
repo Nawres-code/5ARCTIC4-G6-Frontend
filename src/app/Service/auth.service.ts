@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 
 export class AuthService {
 
-  private endpointURL="http://localhost:9200/api/v1/auth/"
+  private endpointURL="http://192.168.40.149:9200/api/v1/auth/"
   public  JWT_TOKEN_KEY= 'jwt_token';
   public connected_User :any;
  

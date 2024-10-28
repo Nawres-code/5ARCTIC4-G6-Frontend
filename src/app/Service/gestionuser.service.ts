@@ -13,9 +13,9 @@ export class GestionuserService {
 
   constructor(private http: HttpClient) {
     // Update the URL to match your backend URL
-    //http://localhost:9200/api/v1/user/getall
-   // this.userUrl = 'http://localhost:9200/parking/userdashboard/user-count';
-    this.userUrl = 'http://localhost:9200/api/v1/user'; 
+    //http://192.168.40.149:9200/api/v1/user/getall
+   // this.userUrl = 'http://192.168.40.149:9200/parking/userdashboard/user-count';
+    this.userUrl = 'http://192.168.40.149:9200/api/v1/user'; 
   }
 
   public findAll(): any {
