@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: lakhalacr.azurecr.io/my-frontend:latest
+        image: lakhalacr.azurecr.io/my-frontend:latest  
         ports:
-        - containerPort: 80
+        - containerPort: 80  
