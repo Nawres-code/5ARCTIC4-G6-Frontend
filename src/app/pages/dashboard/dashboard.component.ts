@@ -242,7 +242,6 @@ this.dashboardService.getUserCountSinceLastMonth().subscribe(count => {
     });
   }
   
-  
   fetchMostActiveUser(): void {
     this.dashboardService.getmostActiveUser().subscribe(
         (user: User) => {
