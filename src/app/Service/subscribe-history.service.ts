@@ -12,7 +12,7 @@ export class SubscribeHistoryService {
 
   constructor(private http: HttpClient) {
     // Update the URL to match your backend URL
-   // this.userUrl = 'http://localhost:9000/parking/userdashboard/user-count';
+   // this.userUrl = 'http://192.168.40.149:9000/parking/userdashboard/user-count';
     this.subscribtionhistoyUrl = 'http://192.168.40.149:9200/api/v1/subHistory'; 
   }
 

@@ -36,7 +36,7 @@ export class AuthService {
     );
   }
 
-   endpointpwd="http://localhost:9200/api/v1/"
+   endpointpwd="http://192.168.40.149:9200/api/v1/"
    forgotPassword(email: string): Observable<any> {
     const forgotPasswordUrl =  `${this.endpointpwd}forgot-password`;
 
@@ -124,7 +124,7 @@ export class AuthService {
 
 
   deleteUserById(userId: number): Observable<any> {
-    const deleteUserUrl = `http://localhost:9200/api/v1/user/deleteId/${userId}`;
+    const deleteUserUrl = `http://192.168.40.149:9200/api/v1/user/deleteId/${userId}`;
     return this.http.delete(deleteUserUrl).pipe(
       tap(() => {
         // Optionally perform any actions after successful deletion
