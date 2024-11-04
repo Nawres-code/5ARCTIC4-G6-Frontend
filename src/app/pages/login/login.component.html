@@ -1,0 +1,71 @@
+<div class="header bg-gradient-danger py-7 py-lg-8">
+  <div class="container">
+    <div class="header-body text-center mb-7">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-6">
+          <h1 class="text-white">Welcome!</h1>
+          <p class="text-lead text-light">Use these awesome forms to login or create a new account in your project for free.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="separator separator-bottom separator-skew zindex-100">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container mt--8 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-5 col-md-7">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-header bg-transparent pb-5">
+          <a class="navbar-brand pt-0 d-flex justify-content-center" routerLinkActive="active" [routerLink]="['/login']">
+            <img src="./assets/img/parkini1.png" class="navbar-brand-img" alt="Parkini Logo" width="200" height="auto">
+          </a>
+        </div>
+        <div class="card-body px-lg-5 py-lg-5">
+          <div class="text-center text-muted mb-4">
+            <small>Or sign in with credentials</small>
+          </div>
+          <form role="form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <div class="form-group mb-3">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                </div>
+                <input class="form-control" placeholder="Email" type="email" name="email" [(ngModel)]="email" required>
+              </div>
+              <!-- Display email validation error -->
+              <div class="text-danger" *ngIf="loginForm.controls['email'].errors?.required && loginForm.submitted">
+                Email is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+                <input class="form-control" placeholder="Password" type="password" name="password" [(ngModel)]="password" required>
+              </div>
+              <!-- Display password validation error -->
+              <div class="text-danger" *ngIf="loginForm.controls['password'].errors?.required && loginForm.submitted">
+                Password is required.
+              </div>
+            </div>
+
+            <div class="mb-3 d-flex justify-content-between ">
+              <a routerLink="/forget-pwd" class="text-primary">Forgot Password?</a>
+              <a routerLink="/register" class="text-primary">Register</a>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary my-4">Sign in</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

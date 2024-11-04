@@ -1,0 +1,33 @@
+/* AddReclamationComponentStyles.css */
+
+.card.shadow {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increase the shadow */
+    border-radius: 15px; /* Add border radius for rounded corners */
+    width: 80%; /* Adjust the width */
+    margin: 0 auto; /* Center the card horizontally */
+    margin-top:70px;
+
+}
+  
+  .card-body {
+    padding: 30px; /* Increase the padding inside the card body */
+  }
+  
+  .card-title {
+    color: #333; /* Change the color of the title */
+    font-size: 1.2rem; /* Increase the font size of the title */
+    margin-bottom: 30px; /* Add more space below the title */
+  }
+  
+
+  
+  .form-control {
+    border-radius: 10px; /* Add border radius for form inputs */
+  }
+  
+  .invalid-feedback {
+    color: #dc3545; /* Set color for invalid feedback messages */
+    font-size: 0.875rem; /* Decrease the font size of invalid feedback messages */
+    margin-top: 10px; /* Add more space above invalid feedback messages */
+  }
+  

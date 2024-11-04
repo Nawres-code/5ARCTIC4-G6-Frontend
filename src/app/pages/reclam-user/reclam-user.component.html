@@ -1,0 +1,25 @@
+<div class="card shadow">
+    <div class="card-body">
+      <h5 class="card-title">Add Reclamation</h5>
+      <form [formGroup]="reclamationForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title" formControlName="title">
+          <div *ngIf="reclamationForm.get('title').invalid && reclamationForm.get('title').touched" class="invalid-feedback">
+            <div *ngIf="reclamationForm.get('title').errors?.required">Title is required</div>
+            <div *ngIf="reclamationForm.get('title').errors?.maxlength">Title should be less than 30 characters</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="content" class="form-label">Content</label>
+          <textarea class="form-control" id="content" formControlName="content"></textarea>
+          <div *ngIf="reclamationForm.get('content').invalid && reclamationForm.get('content').touched" class="invalid-feedback">
+            <div *ngIf="reclamationForm.get('content').errors?.required">Content is required</div>
+            <div *ngIf="reclamationForm.get('content').errors?.maxlength">Content should be less than 70 characters</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+    </div>
+  </div>
+  

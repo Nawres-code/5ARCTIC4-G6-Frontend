@@ -1,0 +1,77 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+  style="
+    min-height: 8px;
+    background-image: url(assets/img/Lost.jpg);
+    background-size: cover;
+    background-position: center top;
+  "
+>
+  <!-- Mask -->
+  <span class="mask bg-gradient-danger opacity-2"></span>
+  <div class="container-fluid d-flex align-items-center">
+    <div class="row">
+      <div class="col-lg-7 col-md-10">
+        <p class="text-white mt-0 mb-5">
+          Join the conversation and lend a helping hand to those seeking
+          guidance
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+      <!-- Votre carte de profil va ici -->
+    </div>
+    <div class="col-xl-9 order-xl-1 mx-auto" style="max-width: 800px">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">My Post</h3>
+            </div>
+            <div class="col-4 text-right">
+              <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" class="form-control" [(ngModel)]="poste.title" name="title" #title="ngModel" required forbiddenWords>
+                  <div *ngIf="title.invalid && (title.dirty || title.touched)" class="text-danger">
+                    <div *ngIf="title.errors.required">
+                      Title is required
+                    </div>
+                    <div *ngIf="title.errors.forbiddenWords">
+                      Sensitive word in title
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea class="form-control" [(ngModel)]="poste.description" name="description" #description="ngModel" required></textarea>
+                  <div *ngIf="description.invalid && (description.dirty || description.touched)" class="text-danger">
+                    <div *ngIf="description.errors.required">
+                      Description is required
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Date</label>
+                  <input type="date" class="form-control" [(ngModel)]="poste.date" name="date" #date="ngModel" required>
+                  <div *ngIf="date.invalid && (date.dirty || date.touched)" class="text-danger">
+                    <div *ngIf="date.errors.required">
+                      Date is required
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>              
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

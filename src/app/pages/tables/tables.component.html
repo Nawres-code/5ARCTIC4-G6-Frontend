@@ -1,0 +1,99 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+  style="
+    min-height: 10px;
+    background-image: url(assets/img/parking.jpg);
+    background-size: cover;
+    background-position: center top;
+  "
+>
+  <!-- Mask -->
+  <span class="mask bg-gradient-danger opacity-4"></span>
+  <div class="container-fluid d-flex align-items-center">
+    <div class="row">
+      <div class="col-lg-7 col-md-10">
+        <h1 class="display-2 text-white">Hello</h1>
+        <p class="text-white mt-0 mb-5">
+          Lost something? Our Lost and Found interface is here to assist you in
+          reclaiming your belongings
+        </p>
+        <a routerLink="/user-profile" class="btn btn-primary">Add Poste</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+      <!-- Votre carte de profil va ici -->
+    </div>
+    <div class="col-xl-9 order-xl-1 mx-auto" style="max-width: 800px">
+      <div class="card bg-secondary shadow w-100">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-4">
+              <h3 class="mb-0">My Post</h3>
+            </div>
+            <div class="col-4 text-center">
+              <!-- Formulaire de recherche -->
+              <form class="form-inline">
+                <div class="form-group">
+                  <!-- Champ de recherche -->
+                  <div class="input-group">
+                    <!-- Icône de loupe -->
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-search"></i>
+                      </span>
+                    </div>
+                    <!-- Champ de saisie -->
+                    <input type="text" class="form-control" [(ngModel)]="searchTerm" (ngModelChange)="searchByTitle()" placeholder="Search by title">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-4 text-right">
+              <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Date</th>
+                <th scope="col">UserName</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let post of poste">
+                <th scope="row">{{ post.idPoste }}</th>
+                <td>{{ post.title }}</td>
+                <td>{{ post.description }}</td>
+                <td>{{ post.date }}</td>
+                <td>{{ post.userName }}</td>
+                <td>
+                  <div style="display: flex; align-items: center">
+                    <span placement="top-center" style="cursor: pointer; margin-right: 10px" ngbTooltip="Supprimer" (click)="deletePoste(post.idPoste)">
+                      <i class="ni ni-fat-remove text-danger"></i>
+                    </span>
+                    <a (click)="updateSelectedPost(post)" placement="top-center" style="cursor: pointer" ngbTooltip="Update Poste">
+                      <i class="ni ni-ruler-pencil text-info"></i>
+                    </a>                    
+                    <a [routerLink]="['/add-comment', post.idPoste]" placement="top-center" style="cursor: pointer" ngbTooltip="Add Comment" >
+                      <i class="ni ni-fat-add text-green"></i>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

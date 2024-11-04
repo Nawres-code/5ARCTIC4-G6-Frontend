@@ -1,0 +1,25 @@
+.alert-container {
+  position: absolute;
+  top: 20px; /* Adjust this value as needed */
+  right: 20px; /* Adjust this value as needed */
+  z-index: 9999; /* Ensure it's on top of other content */
+}
+
+.alert-container .alert-wrapper {
+  display: inline-block;
+  padding: 10px 20px; /* Adjust padding as needed */
+  background-color: red; /* Adjust background color */
+  color: white; /* Adjust text color */
+  border-radius: 10px; /* Adjust border radius */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+}
+
+.message-container {
+  .message {
+    margin-bottom: 10px; // Adds a margin at the bottom of each message
+  }
+
+  .spacer {
+    height: 20px; // Adjust the height of the space as needed
+  }
+}

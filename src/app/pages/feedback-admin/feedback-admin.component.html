@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row mt-4 text-center">
+    <div  class="col-md-12 card shadow">
+      <p *ngIf="hasFeedbacks" class="rating"><span style="color:#F3A4B5">Average Rating:</span>
+        <span *ngFor="let star of stars" [ngClass]="{'filled': star <= averageRating}">
+          &#9733;
+        </span>
+        ({{ averageRating }}/5)
+      </p>
+    </div>
+  </div>
+  <div class="row text-center" *ngIf="hasFeedbacks">
+    <div class="col-md-4" *ngFor="let feedback of paginatedFeedbacks">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title">Feedback {{ feedback.idFeedBack }}</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Email :{{ feedback.email }}</p>
+          <p class="card-text">Description: {{ feedback.description }}</p>
+          <div class="rating">
+            <span *ngFor="let star of stars" [ngClass]="{'filled': star <= feedback.rating}">&#9733;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center" *ngIf="!hasFeedbacks">
+    <div class="col-md-6">
+      <div class="card shadow mt-3">
+        <h4 class="card-header m-lg-2">No feedback exists at the moment.</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pagination -->
+<nav *ngIf="hasFeedbacks" class="text-center" aria-label="Page navigation example ">
+  <ul class="pagination justify-content-center">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" (click)="prevPage()">
+        <i class="fas fa-chevron-left"></i> <!-- Icon for "Previous" -->
+      </a>
+    </li>
+    <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+      <a class="page-link" (click)="setPage(page)">{{ page }}</a>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <a class="page-link" (click)="nextPage()">
+        <i class="fas fa-chevron-right"></i> <!-- Icon for "Next" -->
+      </a>
+    </li>
+  </ul>
+</nav>

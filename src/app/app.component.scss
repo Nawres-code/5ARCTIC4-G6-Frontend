@@ -1,0 +1,10 @@
+/* CSS */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1; /* Allow the main content area to grow */
+}
